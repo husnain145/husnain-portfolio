@@ -1,6 +1,41 @@
 import { motion } from "motion/react";
+import type { IconType } from "react-icons";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiAngular,
+  SiNodedotjs,
+  SiExpress,
+  SiLaravel,
+  SiFastapi,
+  SiMongodb,
+  SiMysql,
+  SiPython,
+  SiPytorch,
+  SiTypescript,
+  SiTailwindcss,
+  SiUnity,
+} from "react-icons/si";
 import { Section } from "./Section";
 import { TECH_BADGES } from "@/lib/portfolio-data";
+
+const TECH_ICONS: Record<string, IconType> = {
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  Angular: SiAngular,
+  "Node.js": SiNodedotjs,
+  Express: SiExpress,
+  Laravel: SiLaravel,
+  FastAPI: SiFastapi,
+  MongoDB: SiMongodb,
+  MySQL: SiMysql,
+  Python: SiPython,
+  PyTorch: SiPytorch,
+  TypeScript: SiTypescript,
+  "Tailwind CSS": SiTailwindcss,
+  Unity3D: SiUnity,
+};
+
 
 export function About() {
   return (
