@@ -47,6 +47,7 @@ export const EXPERIENCE = [
 export const PROJECTS = [
   {
     title: "Campus Management System",
+    icon: "graduationCap" as const,
     description:
       "Full campus operations platform: student records, attendance, courses and role-based dashboards.",
     tags: ["Angular", "Node.js", "Express", "MongoDB"],
@@ -54,6 +55,7 @@ export const PROJECTS = [
   },
   {
     title: "MERN TV Show Info App",
+    icon: "tv" as const,
     description:
       "Discovery app for TV shows with search, watchlists and rich metadata from a third-party API.",
     tags: ["React", "Node.js", "Express", "MongoDB"],
@@ -61,6 +63,7 @@ export const PROJECTS = [
   },
   {
     title: "Real-Time Auction System",
+    icon: "gavel" as const,
     description:
       "Live bidding platform with websocket auction rooms, bid history and multi-payment gateway checkout.",
     tags: ["MERN", "Socket.IO", "Payments"],
@@ -68,6 +71,7 @@ export const PROJECTS = [
   },
   {
     title: "Image Caption Generator & Tutor for Blind Individuals",
+    icon: "eye" as const,
     description:
       "Final year project: BLIP + ViT captioning pipeline with audio tutoring, served to a mobile app.",
     tags: ["PyTorch", "BLIP", "ViT", "Flask", "Flutter", "GCP"],
@@ -75,6 +79,7 @@ export const PROJECTS = [
   },
   {
     title: "AI Healthcare Prediction System",
+    icon: "heartPulse" as const,
     description:
       "Clinical risk prediction models with an explainable dashboard for early diagnosis support.",
     tags: ["Python", "scikit-learn", "FastAPI"],
@@ -82,6 +87,7 @@ export const PROJECTS = [
   },
   {
     title: "Credit Card Fraud Detection",
+    icon: "shieldAlert" as const,
     description:
       "Imbalanced-data classification pipeline with feature engineering and real-time scoring API.",
     tags: ["Python", "XGBoost", "Pandas"],
@@ -89,6 +95,7 @@ export const PROJECTS = [
   },
   {
     title: "Phishing Detection System (NLP)",
+    icon: "fish" as const,
     description:
       "Transformer-based text classifier that flags phishing emails and URLs with confidence scoring.",
     tags: ["NLP", "Transformers", "Python"],
