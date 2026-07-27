@@ -1,9 +1,30 @@
 import { motion } from "motion/react";
-import { Github, ArrowUpRight } from "lucide-react";
+import {
+  Github,
+  ArrowUpRight,
+  GraduationCap,
+  Tv,
+  Gavel,
+  Eye,
+  HeartPulse,
+  ShieldAlert,
+  Fish,
+} from "lucide-react";
 import { Section } from "./Section";
 import { PROJECTS, PROFILE } from "@/lib/portfolio-data";
 
+const projectIcons = {
+  graduationCap: GraduationCap,
+  tv: Tv,
+  gavel: Gavel,
+  eye: Eye,
+  heartPulse: HeartPulse,
+  shieldAlert: ShieldAlert,
+  fish: Fish,
+};
+
 export function Projects() {
+
   return (
     <Section
       id="projects"
@@ -15,7 +36,9 @@ export function Projects() {
       }
     >
       <div className="grid gap-6 sm:grid-cols-2">
-        {PROJECTS.map((project, i) => (
+        {PROJECTS.map((project, i) => {
+          const Icon = projectIcons[project.icon];
+          return (
           <motion.article
             key={project.title}
             initial={{ opacity: 0, y: 28 }}
@@ -29,12 +52,19 @@ export function Projects() {
               className={`relative h-32 bg-gradient-to-br ${project.accent} opacity-80 transition-opacity group-hover:opacity-100`}
             >
               <div className="grid-bg absolute inset-0" />
+              <span className="glass absolute top-4 left-5 flex size-11 items-center justify-center rounded-xl">
+                <Icon className="size-5 text-primary" />
+              </span>
               <span className="absolute bottom-3 left-5 font-mono text-xs tracking-widest text-background/80 uppercase">
                 0{i + 1}
               </span>
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-lg font-semibold">{project.title}</h3>
+              <h3 className="flex items-center gap-2 text-lg font-semibold">
+                <Icon className="size-4 shrink-0 text-accent" />
+                {project.title}
+              </h3>
+
               <p className="mt-2 flex-1 text-sm text-muted-foreground">{project.description}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
@@ -58,7 +88,9 @@ export function Projects() {
               </a>
             </div>
           </motion.article>
-        ))}
+          );
+        })}
+
       </div>
     </Section>
   );
