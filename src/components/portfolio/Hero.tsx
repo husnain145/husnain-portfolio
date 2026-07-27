@@ -183,9 +183,10 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
 
         <motion.div
           ref={photoRef}
-          initial={{ opacity: 0, scale: 0.92, y: 24 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.15, type: "spring", stiffness: 90, damping: 18 }}
+
           style={{ y: reduceMotion ? 0 : parallaxY, perspective: 1000 }}
           onPointerMove={handlePointer}
           onPointerLeave={resetPointer}
