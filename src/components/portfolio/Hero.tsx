@@ -103,10 +103,23 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
           transition={{ delay: 0.4 }}
           className="mt-16 flex flex-wrap gap-x-10 gap-y-3 font-mono text-xs text-muted-foreground"
         >
-          <span>2+ yrs full stack</span>
-          <span>MERN / MEAN</span>
-          <span>AI & ML delivery</span>
-          <span>BSCS — GCU Lahore, 3.6 CGPA</span>
+          <span className="inline-flex items-center gap-2">
+            <Code2 className="size-3.5 text-primary" />
+            2+ yrs full stack
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <Layers className="size-3.5 text-primary" />
+            MERN / MEAN
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <BrainCircuit className="size-3.5 text-primary" />
+            AI &amp; ML delivery
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <GraduationCap className="size-3.5 text-primary" />
+            BSCS — GCU Lahore, 3.6 CGPA
+          </span>
+
         </motion.div>
       </div>
     </section>
