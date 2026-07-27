@@ -1,6 +1,40 @@
 import { motion } from "motion/react";
+import {
+  Atom,
+  Triangle,
+  Shield,
+  Hexagon,
+  Route,
+  Flame,
+  Zap,
+  Leaf,
+  Database,
+  Code2,
+  BrainCircuit,
+  FileCode,
+  Wind,
+  Box,
+} from "lucide-react";
 import { Section } from "./Section";
 import { TECH_BADGES } from "@/lib/portfolio-data";
+
+const techIcons = {
+  atom: Atom,
+  triangle: Triangle,
+  shield: Shield,
+  hexagon: Hexagon,
+  route: Route,
+  flame: Flame,
+  zap: Zap,
+  leaf: Leaf,
+  database: Database,
+  code2: Code2,
+  brainCircuit: BrainCircuit,
+  fileCode: FileCode,
+  wind: Wind,
+  box: Box,
+};
+
 
 export function About() {
   return (
@@ -34,20 +68,25 @@ export function About() {
         </div>
 
         <div className="flex flex-wrap content-start gap-2.5">
-          {TECH_BADGES.map((tech, i) => (
-            <motion.span
-              key={tech}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              whileHover={{ y: -3 }}
-              className="glass rounded-full px-4 py-2 font-mono text-xs text-foreground/90"
-            >
-              {tech}
-            </motion.span>
-          ))}
+          {TECH_BADGES.map((tech, i) => {
+            const Icon = techIcons[tech.icon];
+            return (
+              <motion.span
+                key={tech.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.04 }}
+                whileHover={{ y: -3 }}
+                className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs text-foreground/90"
+              >
+                <Icon className="size-3.5 text-primary" />
+                {tech.name}
+              </motion.span>
+            );
+          })}
         </div>
+
       </div>
     </Section>
   );
