@@ -20,7 +20,7 @@ import {
 
 import { useEffect, useRef, useState } from "react";
 import { PROFILE } from "@/lib/portfolio-data";
-import portrait from "@/assets/husnain.jpg.asset.json";
+import portrait from "@/assets/husnain-cutout.png.asset.json";
 
 
 export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
