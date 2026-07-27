@@ -1,9 +1,30 @@
 import { motion } from "motion/react";
-import { Github, ArrowUpRight } from "lucide-react";
+import {
+  Github,
+  ArrowUpRight,
+  GraduationCap,
+  Tv,
+  Gavel,
+  Eye,
+  HeartPulse,
+  ShieldAlert,
+  Fish,
+} from "lucide-react";
 import { Section } from "./Section";
 import { PROJECTS, PROFILE } from "@/lib/portfolio-data";
 
+const projectIcons = {
+  graduationCap: GraduationCap,
+  tv: Tv,
+  gavel: Gavel,
+  eye: Eye,
+  heartPulse: HeartPulse,
+  shieldAlert: ShieldAlert,
+  fish: Fish,
+};
+
 export function Projects() {
+
   return (
     <Section
       id="projects"
