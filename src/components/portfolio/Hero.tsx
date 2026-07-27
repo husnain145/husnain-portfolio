@@ -1,5 +1,14 @@
 import { motion } from "motion/react";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import {
+  ArrowRight,
+  MessageSquare,
+  MapPin,
+  Code2,
+  Layers,
+  BrainCircuit,
+  GraduationCap,
+} from "lucide-react";
+
 import { useEffect, useState } from "react";
 import { PROFILE } from "@/lib/portfolio-data";
 
