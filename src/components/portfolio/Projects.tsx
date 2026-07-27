@@ -88,7 +88,9 @@ export function Projects() {
               </a>
             </div>
           </motion.article>
-        ))}
+          );
+        })}
+
       </div>
     </Section>
   );
