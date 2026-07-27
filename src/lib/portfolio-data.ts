@@ -152,18 +152,19 @@ export const SOFT_SKILLS = [
 ];
 
 export const TECH_BADGES = [
-  "React",
-  "Next.js",
-  "Angular",
-  "Node.js",
-  "Express",
-  "Laravel",
-  "FastAPI",
-  "MongoDB",
-  "MySQL",
-  "Python",
-  "PyTorch",
-  "TypeScript",
-  "Tailwind CSS",
-  "Unity3D",
+  { name: "React", icon: "atom" as const },
+  { name: "Next.js", icon: "triangle" as const },
+  { name: "Angular", icon: "shield" as const },
+  { name: "Node.js", icon: "hexagon" as const },
+  { name: "Express", icon: "route" as const },
+  { name: "Laravel", icon: "flame" as const },
+  { name: "FastAPI", icon: "zap" as const },
+  { name: "MongoDB", icon: "leaf" as const },
+  { name: "MySQL", icon: "database" as const },
+  { name: "Python", icon: "code2" as const },
+  { name: "PyTorch", icon: "brainCircuit" as const },
+  { name: "TypeScript", icon: "fileCode" as const },
+  { name: "Tailwind CSS", icon: "wind" as const },
+  { name: "Unity3D", icon: "box" as const },
 ];
+
