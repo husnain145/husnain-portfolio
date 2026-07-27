@@ -182,29 +182,42 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
         </div>
 
         <motion.div
+          ref={photoRef}
           initial={{ opacity: 0, scale: 0.92, y: 24 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.15, type: "spring", stiffness: 90, damping: 18 }}
-          className="relative mx-auto w-full max-w-sm"
+          style={{ y: reduceMotion ? 0 : parallaxY, perspective: 1000 }}
+          onPointerMove={handlePointer}
+          onPointerLeave={resetPointer}
+          className="group relative mx-auto w-full max-w-sm"
         >
           <motion.div
             aria-hidden
             animate={{ rotate: 360 }}
             transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-            className="absolute -inset-4 rounded-[2.5rem] opacity-60 blur-2xl"
+            className="absolute -inset-4 rounded-[2.5rem] opacity-60 blur-2xl transition-opacity duration-500 group-hover:opacity-90"
             style={{ background: "var(--gradient-accent)" }}
           />
           <motion.div
-            animate={{ y: [0, -12, 0] }}
+            animate={reduceMotion ? undefined : { y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
             className="glass relative overflow-hidden rounded-[2rem] p-2"
-            style={{ boxShadow: "var(--shadow-glow)" }}
+            style={{
+              boxShadow: "var(--shadow-glow)",
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }}
           >
-            <img
+            <motion.img
               src={portrait.url}
               alt="Husnain — Software Engineer specializing in full stack and AI/ML"
               className="aspect-square w-full rounded-[1.6rem] object-cover"
               loading="eager"
+              style={{ scale: 1.02, translateZ: 30 }}
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 120, damping: 20 }}
             />
             <div
               className="pointer-events-none absolute inset-2 rounded-[1.6rem]"
@@ -213,6 +226,12 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
                   "linear-gradient(to top, color-mix(in oklab, var(--background) 65%, transparent), transparent 45%)",
               }}
             />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute inset-2 rounded-[1.6rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{ background: shine, mixBlendMode: "screen" }}
+            />
+
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
