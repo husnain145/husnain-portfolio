@@ -1,4 +1,12 @@
-import { motion } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  useMotionTemplate,
+  useSpring,
+  useTransform,
+  useScroll,
+  useReducedMotion,
+} from "motion/react";
 import {
   ArrowRight,
   MessageSquare,
@@ -10,9 +18,10 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PROFILE } from "@/lib/portfolio-data";
 import portrait from "@/assets/husnain.jpg.asset.json";
+
 
 export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
   const [roleIndex, setRoleIndex] = useState(0);
