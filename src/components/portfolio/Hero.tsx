@@ -34,10 +34,12 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-mono text-sm tracking-widest text-primary uppercase"
+          className="inline-flex items-center gap-2 font-mono text-sm tracking-widest text-primary uppercase"
         >
+          <MapPin className="size-4" />
           {PROFILE.location}
         </motion.p>
+
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
