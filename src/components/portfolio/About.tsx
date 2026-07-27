@@ -1,6 +1,40 @@
 import { motion } from "motion/react";
+import {
+  Atom,
+  Triangle,
+  Shield,
+  Hexagon,
+  Route,
+  Flame,
+  Zap,
+  Leaf,
+  Database,
+  Code2,
+  BrainCircuit,
+  FileCode,
+  Wind,
+  Box,
+} from "lucide-react";
 import { Section } from "./Section";
 import { TECH_BADGES } from "@/lib/portfolio-data";
+
+const techIcons = {
+  atom: Atom,
+  triangle: Triangle,
+  shield: Shield,
+  hexagon: Hexagon,
+  route: Route,
+  flame: Flame,
+  zap: Zap,
+  leaf: Leaf,
+  database: Database,
+  code2: Code2,
+  brainCircuit: BrainCircuit,
+  fileCode: FileCode,
+  wind: Wind,
+  box: Box,
+};
+
 
 export function About() {
   return (
