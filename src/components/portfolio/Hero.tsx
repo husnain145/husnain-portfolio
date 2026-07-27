@@ -211,10 +211,18 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
               transformStyle: "preserve-3d",
             }}
           >
+            <div
+              aria-hidden
+              className="absolute inset-2 rounded-[1.6rem]"
+              style={{
+                background:
+                  "radial-gradient(70% 70% at 50% 30%, color-mix(in oklab, var(--violet) 35%, transparent), color-mix(in oklab, var(--surface-2) 90%, transparent))",
+              }}
+            />
             <motion.img
               src={portrait.url}
               alt="Husnain — Software Engineer specializing in full stack and AI/ML"
-              className="aspect-square w-full rounded-[1.6rem] object-cover"
+              className="relative aspect-square w-full rounded-[1.6rem] object-contain"
               loading="eager"
               style={{ scale: 1.02, translateZ: 30 }}
               whileHover={{ scale: 1.08 }}
