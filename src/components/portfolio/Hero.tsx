@@ -33,6 +33,40 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
     return () => clearInterval(id);
   }, []);
 
+  const reduceMotion = useReducedMotion();
+
+  // Scroll parallax: photo drifts slightly slower than the page.
+  const photoRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: photoRef,
+    offset: ["start end", "end start"],
+  });
+  const parallaxRaw = useTransform(scrollYProgress, [0, 1], [36, -36]);
+  const parallaxY = useSpring(parallaxRaw, { stiffness: 90, damping: 24, mass: 0.4 });
+
+  // Pointer tilt
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const springCfg = { stiffness: 160, damping: 18, mass: 0.5 };
+  const rotateX = useSpring(useTransform(py, [-0.5, 0.5], [8, -8]), springCfg);
+  const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-10, 10]), springCfg);
+  const shineX = useTransform(px, [-0.5, 0.5], ["20%", "80%"]);
+  const shineY = useTransform(py, [-0.5, 0.5], ["15%", "85%"]);
+  const shine = useMotionTemplate`radial-gradient(45% 45% at ${shineX} ${shineY}, color-mix(in oklab, var(--primary) 30%, transparent), transparent 70%)`;
+
+  const handlePointer = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (reduceMotion) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    px.set((e.clientX - r.left) / r.width - 0.5);
+    py.set((e.clientY - r.top) / r.height - 0.5);
+  };
+  const resetPointer = () => {
+    px.set(0);
+    py.set(0);
+  };
+
+
+
   return (
     <section
       id="home"
