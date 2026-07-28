@@ -46,26 +46,31 @@ export function Projects() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ delay: (i % 2) * 0.08 }}
             whileHover={{ y: -6 }}
-            className="glass group flex flex-col overflow-hidden rounded-2xl transition-colors hover:border-primary/60"
+            className="glass group relative flex flex-col overflow-hidden rounded-2xl p-6 transition-colors hover:border-primary/60"
           >
             <div
-              className={`relative h-32 bg-gradient-to-br ${project.accent} opacity-80 transition-opacity group-hover:opacity-100`}
-            >
-              <div className="grid-bg absolute inset-0" />
-              <span className="glass absolute top-4 left-5 flex size-11 items-center justify-center rounded-xl">
-                <Icon className="size-5 text-primary" />
+              className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${project.accent} opacity-70`}
+            />
+            <div
+              className={`pointer-events-none absolute -top-16 -right-16 size-40 rounded-full bg-gradient-to-br ${project.accent} opacity-10 blur-2xl transition-opacity duration-300 group-hover:opacity-25`}
+            />
+
+            <div className="flex items-center justify-between">
+              <span
+                className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${project.accent} shadow-lg`}
+              >
+                <Icon className="size-5 text-background" />
               </span>
-              <span className="absolute bottom-3 left-5 font-mono text-xs tracking-widest text-background/80 uppercase">
+              <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
                 0{i + 1}
               </span>
             </div>
-            <div className="flex flex-1 flex-col p-6">
-              <h3 className="flex items-center gap-2 text-lg font-semibold">
-                <Icon className="size-4 shrink-0 text-accent" />
-                {project.title}
-              </h3>
+
+            <div className="flex flex-1 flex-col">
+              <h3 className="mt-5 text-lg leading-snug font-semibold">{project.title}</h3>
 
               <p className="mt-2 flex-1 text-sm text-muted-foreground">{project.description}</p>
+
               <div className="mt-5 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
