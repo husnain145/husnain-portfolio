@@ -20,6 +20,7 @@ import {
 
 import { useEffect, useRef, useState } from "react";
 import { PROFILE } from "@/lib/portfolio-data";
+import { useIsMobile } from "@/hooks/use-mobile";
 import portrait from "@/assets/husnain-cutout.png.asset.json";
 
 
