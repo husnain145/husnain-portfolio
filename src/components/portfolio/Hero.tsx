@@ -35,6 +35,9 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
   }, []);
 
   const reduceMotion = useReducedMotion();
+  const isMobile = useIsMobile();
+  // Mobile devices choke on parallax + 3D tilt + big blurs; keep it light there.
+  const lite = !!reduceMotion || isMobile;
 
   // Scroll parallax: photo drifts slightly slower than the page.
   const photoRef = useRef<HTMLDivElement>(null);
@@ -56,7 +59,7 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
   const shine = useMotionTemplate`radial-gradient(45% 45% at ${shineX} ${shineY}, color-mix(in oklab, var(--primary) 30%, transparent), transparent 70%)`;
 
   const handlePointer = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (reduceMotion) return;
+    if (lite) return;
     const r = e.currentTarget.getBoundingClientRect();
     px.set((e.clientX - r.left) / r.width - 0.5);
     py.set((e.clientY - r.top) / r.height - 0.5);
