@@ -79,13 +79,15 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
       <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
       <div className="grid-bg absolute inset-0 -z-10" />
 
-      <motion.div
-        aria-hidden
-        animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.6, 0.35] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute top-1/4 right-[-10%] -z-10 size-[32rem] rounded-full blur-3xl"
-        style={{ background: "var(--gradient-accent)", opacity: 0.25 }}
-      />
+      {!lite && (
+        <motion.div
+          aria-hidden
+          animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.6, 0.35] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          className="pointer-events-none absolute top-1/4 right-[-10%] -z-10 size-[32rem] rounded-full blur-3xl"
+          style={{ background: "var(--gradient-accent)", opacity: 0.25 }}
+        />
+      )}
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
