@@ -193,29 +193,33 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.15, type: "spring", stiffness: 90, damping: 18 }}
 
-          style={{ y: reduceMotion ? 0 : parallaxY, perspective: 1000 }}
+          style={{ y: lite ? 0 : parallaxY, perspective: lite ? undefined : 1000 }}
           onPointerMove={handlePointer}
           onPointerLeave={resetPointer}
           className="group relative mx-auto w-full max-w-sm"
         >
           <motion.div
             aria-hidden
-            animate={{ rotate: 360 }}
+            animate={lite ? undefined : { rotate: 360 }}
             transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-            className="absolute -inset-4 rounded-[2.5rem] opacity-60 blur-2xl transition-opacity duration-500 group-hover:opacity-90"
+            className="absolute -inset-4 rounded-[2.5rem] opacity-50 blur-xl sm:opacity-60 sm:blur-2xl"
             style={{ background: "var(--gradient-accent)" }}
           />
           <motion.div
-            animate={reduceMotion ? undefined : { y: [0, -12, 0] }}
+            animate={lite ? undefined : { y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            whileHover={{ scale: 1.03 }}
+            whileHover={lite ? undefined : { scale: 1.03 }}
             className="glass relative overflow-hidden rounded-[2rem] p-2"
-            style={{
-              boxShadow: "var(--shadow-glow)",
-              rotateX,
-              rotateY,
-              transformStyle: "preserve-3d",
-            }}
+            style={
+              lite
+                ? { boxShadow: "var(--shadow-glow)" }
+                : {
+                    boxShadow: "var(--shadow-glow)",
+                    rotateX,
+                    rotateY,
+                    transformStyle: "preserve-3d",
+                  }
+            }
           >
             <div
               aria-hidden
@@ -230,8 +234,8 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
               alt="Husnain — Software Engineer specializing in full stack and AI/ML"
               className="relative aspect-square w-full rounded-[1.6rem] object-contain"
               loading="eager"
-              style={{ scale: 1.02, translateZ: 30 }}
-              whileHover={{ scale: 1.08 }}
+              style={lite ? { scale: 1.02 } : { scale: 1.02, translateZ: 30 }}
+              whileHover={lite ? undefined : { scale: 1.08 }}
               transition={{ type: "spring", stiffness: 120, damping: 20 }}
             />
             <div
@@ -241,11 +245,13 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
                   "linear-gradient(to top, color-mix(in oklab, var(--background) 65%, transparent), transparent 45%)",
               }}
             />
-            <motion.div
-              aria-hidden
-              className="pointer-events-none absolute inset-2 rounded-[1.6rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              style={{ background: shine, mixBlendMode: "screen" }}
-            />
+            {!lite && (
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute inset-2 rounded-[1.6rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{ background: shine, mixBlendMode: "screen" }}
+              />
+            )}
 
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -259,7 +265,7 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
           </motion.div>
 
           <motion.span
-            animate={{ y: [0, -8, 0] }}
+            animate={lite ? undefined : { y: [0, -8, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
             className="glass absolute -top-4 -left-4 inline-flex items-center gap-2 rounded-full px-3.5 py-2 font-mono text-[11px] text-foreground/90"
           >
@@ -267,7 +273,7 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
             AI / ML
           </motion.span>
           <motion.span
-            animate={{ y: [0, 10, 0] }}
+            animate={lite ? undefined : { y: [0, 10, 0] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
             className="glass absolute -right-3 bottom-16 inline-flex items-center gap-2 rounded-full px-3.5 py-2 font-mono text-[11px] text-foreground/90"
           >
