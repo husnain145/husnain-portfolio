@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { motion, AnimatePresence } from "motion/react";
-import { Bot, X, ArrowUp, MessageSquare } from "lucide-react";
-import { ASSISTANT_NAME, SUGGESTED_QUESTIONS } from "@/lib/chatbot-config";
+import { Bot, X, ArrowUp, MessageSquare, Download } from "lucide-react";
+import { ASSISTANT_NAME, SUGGESTED_QUESTIONS, RESUME_TOKEN } from "@/lib/chatbot-config";
+import { RESUME } from "@/lib/portfolio-data";
+
 
 export function ChatWidget({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
   const [input, setInput] = useState("");
