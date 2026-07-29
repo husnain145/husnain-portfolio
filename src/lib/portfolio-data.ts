@@ -168,3 +168,8 @@ export const TECH_BADGES = [
   { name: "Unity3D", icon: "box" as const },
 ];
 
+
+export const RESUME = {
+  url: "/__l5e/assets-v1/93771046-e66c-4cef-a251-2ade92e8c064/Husnain-Resume.pdf",
+  fileName: "Husnain-Resume.pdf",
+};

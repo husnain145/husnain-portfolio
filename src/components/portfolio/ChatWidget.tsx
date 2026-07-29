@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { motion, AnimatePresence } from "motion/react";
-import { Bot, X, ArrowUp, MessageSquare } from "lucide-react";
-import { ASSISTANT_NAME, SUGGESTED_QUESTIONS } from "@/lib/chatbot-config";
+import { Bot, X, ArrowUp, MessageSquare, Download } from "lucide-react";
+import { ASSISTANT_NAME, SUGGESTED_QUESTIONS, RESUME_TOKEN } from "@/lib/chatbot-config";
+import { RESUME } from "@/lib/portfolio-data";
+
 
 export function ChatWidget({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
   const [input, setInput] = useState("");
@@ -100,13 +102,24 @@ export function ChatWidget({ open, setOpen }: { open: boolean; setOpen: (v: bool
                     </p>
                   </div>
                 ) : (
-                  <p
-                    key={m.id}
-                    className="max-w-[92%] text-sm leading-relaxed whitespace-pre-wrap text-foreground/90"
-                  >
-                    {text}
-                  </p>
+                  <div key={m.id} className="max-w-[92%] space-y-3">
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap text-foreground/90">
+                      {text.replaceAll(RESUME_TOKEN, "").trim()}
+                    </p>
+                    {text.includes(RESUME_TOKEN) && (
+                      <a
+                        href={RESUME.url}
+                        download={RESUME.fileName}
+                        className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-primary-foreground"
+                        style={{ background: "var(--gradient-accent)" }}
+                      >
+                        <Download className="size-3.5" />
+                        Download Husnain's resume (PDF)
+                      </a>
+                    )}
+                  </div>
                 );
+
               })}
 
               {status === "submitted" && (

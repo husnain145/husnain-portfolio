@@ -16,10 +16,12 @@ import {
   BrainCircuit,
   GraduationCap,
   Sparkles,
+  Download,
+
 } from "lucide-react";
 
 import { useEffect, useRef, useState } from "react";
-import { PROFILE } from "@/lib/portfolio-data";
+import { PROFILE, RESUME } from "@/lib/portfolio-data";
 import { useIsMobile } from "@/hooks/use-mobile";
 import portrait from "@/assets/husnain-cutout.png.asset.json";
 
@@ -160,7 +162,18 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
               <MessageSquare className="size-4 text-primary" />
               Chat with my AI Assistant
             </motion.button>
+            <motion.a
+              whileHover={{ y: -3, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              href={RESUME.url}
+              download={RESUME.fileName}
+              className="glass group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-colors hover:border-primary/60"
+            >
+              <Download className="size-4 text-primary transition-transform group-hover:translate-y-0.5" />
+              Download Resume
+            </motion.a>
           </motion.div>
+
 
           <motion.div
             initial={{ opacity: 0 }}
