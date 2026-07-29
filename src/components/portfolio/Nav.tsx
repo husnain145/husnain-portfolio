@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { PROFILE } from "@/lib/portfolio-data";
+import { Download } from "lucide-react";
+import { PROFILE, RESUME } from "@/lib/portfolio-data";
+
 
 const links = [
   { label: "About", href: "#about" },
