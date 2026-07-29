@@ -32,14 +32,25 @@ export function Nav() {
           {PROFILE.name}
           <span className="text-primary">.dev</span>
         </a>
-        <div className="hidden gap-7 text-sm text-muted-foreground sm:flex">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="transition-colors hover:text-primary">
-              {l.label}
-            </a>
-          ))}
+        <div className="flex items-center gap-7">
+          <div className="hidden gap-7 text-sm text-muted-foreground sm:flex">
+            {links.map((l) => (
+              <a key={l.href} href={l.href} className="transition-colors hover:text-primary">
+                {l.label}
+              </a>
+            ))}
+          </div>
+          <a
+            href={RESUME.url}
+            download={RESUME.fileName}
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/10"
+          >
+            <Download className="size-3.5" />
+            Resume
+          </a>
         </div>
       </nav>
+
     </header>
   );
 }
