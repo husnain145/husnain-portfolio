@@ -44,64 +44,140 @@ export const EXPERIENCE = [
   },
 ];
 
+export const PROJECT_TRACKS = [
+  { id: "fullstack" as const, label: "Full Stack (MERN / MEAN)" },
+  { id: "aiml" as const, label: "AI/ML & Backend" },
+];
+
 export const PROJECTS = [
   {
+    track: "fullstack" as const,
+    title: "Real-Time Auction System",
+    icon: "gavel" as const,
+    description:
+      "MERN auction platform with live bidding, Easypaisa/JazzCash/PayPal/card checkout, seller accounts and an animated dark-theme UI.",
+    tags: ["React", "Node.js", "Express", "MongoDB", "Socket.IO"],
+    accent: "from-[oklch(0.7_0.19_330)] to-[oklch(0.66_0.2_296)]",
+  },
+  {
+    track: "fullstack" as const,
+    title: "Instagram Clone (UK Client)",
+    icon: "camera" as const,
+    description:
+      "Full-stack social app replicating photo/video posts, likes, comments and profiles with auth, media uploads and a responsive mobile-first feed.",
+    tags: ["MERN", "Auth", "Media Uploads"],
+    accent: "from-[oklch(0.82_0.15_195)] to-[oklch(0.6_0.18_260)]",
+  },
+  {
+    track: "fullstack" as const,
+    title: "AI Recipe Generator (Web App)",
+    icon: "chefHat" as const,
+    description:
+      "Web app that turns ingredient photos and preferences into personalised recipes, wiring CV and NLP models behind a full-stack frontend/backend.",
+    tags: ["React", "Node.js", "Flask", "Computer Vision"],
+    accent: "from-[oklch(0.75_0.18_75)] to-[oklch(0.7_0.19_40)]",
+  },
+  {
+    track: "fullstack" as const,
+    title: "ASGUS Industry Website (UK Client)",
+    icon: "building2" as const,
+    description:
+      "Corporate site for a UK factory-direct clothing manufacturer, showcasing apparel manufacturing and export services to 500+ brands in 25+ countries.",
+    tags: ["React", "Tailwind CSS", "Responsive UI"],
+    accent: "from-[oklch(0.72_0.17_150)] to-[oklch(0.78_0.16_190)]",
+  },
+  {
+    track: "fullstack" as const,
+    title: "Spicey Foods Ordering Website",
+    icon: "utensils" as const,
+    description:
+      "Food ordering website for a UK restaurant brand — menu browsing and delivery orders for burgers, shawarmas, wings and pizza.",
+    tags: ["React", "Node.js", "MongoDB"],
+    accent: "from-[oklch(0.75_0.18_75)] to-[oklch(0.7_0.19_330)]",
+  },
+  {
+    track: "fullstack" as const,
     title: "Campus Management System",
     icon: "graduationCap" as const,
     description:
-      "Full campus operations platform: student records, attendance, courses and role-based dashboards.",
+      "MEAN stack platform automating student, faculty and staff administrative workflows at GCU Lahore with role-based dashboards.",
     tags: ["Angular", "Node.js", "Express", "MongoDB"],
     accent: "from-[oklch(0.66_0.2_296)] to-[oklch(0.82_0.15_195)]",
   },
   {
-    title: "MERN TV Show Info App",
-    icon: "tv" as const,
-    description:
-      "Discovery app for TV shows with search, watchlists and rich metadata from a third-party API.",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
-    accent: "from-[oklch(0.82_0.15_195)] to-[oklch(0.6_0.18_260)]",
-  },
-  {
-    title: "Real-Time Auction System",
-    icon: "gavel" as const,
-    description:
-      "Live bidding platform with websocket auction rooms, bid history and multi-payment gateway checkout.",
-    tags: ["MERN", "Socket.IO", "Payments"],
-    accent: "from-[oklch(0.7_0.19_330)] to-[oklch(0.66_0.2_296)]",
-  },
-  {
+    track: "aiml" as const,
     title: "Image Caption Generator & Tutor for Blind Individuals",
     icon: "eye" as const,
     description:
-      "Final year project: BLIP + ViT captioning pipeline with audio tutoring, served to a mobile app.",
+      "Final year project: fine-tuned BLIP + Vision Transformer captioning with audio output, evaluated on BLEU/ROUGE and deployed to GCP behind Flask with a Flutter client.",
     tags: ["PyTorch", "BLIP", "ViT", "Flask", "Flutter", "GCP"],
     accent: "from-[oklch(0.78_0.16_170)] to-[oklch(0.82_0.15_195)]",
   },
   {
-    title: "AI Healthcare Prediction System",
+    track: "aiml" as const,
+    title: "AI Recipe Generator (CV + NLP)",
+    icon: "chefHat" as const,
+    description:
+      "ResNet50 transfer-learning classifier over 36 fruit/vegetable classes (96% val, 95% test accuracy) plus a TF-IDF + Logistic Regression cuisine classifier.",
+    tags: ["ResNet50", "Transfer Learning", "TF-IDF", "scikit-learn"],
+    accent: "from-[oklch(0.75_0.18_75)] to-[oklch(0.7_0.19_40)]",
+  },
+  {
+    track: "aiml" as const,
+    title: "Automated Financial Fraud Detection",
+    icon: "shieldAlert" as const,
+    description:
+      "Real-time ML system that scores transaction behaviour for fraud, tuned to raise detection accuracy while cutting the false positives of rule-based systems.",
+    tags: ["Python", "Ensemble Learning", "Imbalanced Data"],
+    accent: "from-[oklch(0.75_0.18_75)] to-[oklch(0.7_0.19_40)]",
+  },
+  {
+    track: "aiml" as const,
+    title: "AI-Based Phishing Detection App",
+    icon: "fish" as const,
+    description:
+      "Mobile app trained on Kaggle datasets that analyses message text and URL features to flag phishing links in real time with risk alerts.",
+    tags: ["NLP", "Scikit-learn", "Mobile"],
+    accent: "from-[oklch(0.66_0.2_296)] to-[oklch(0.7_0.19_330)]",
+  },
+  {
+    track: "aiml" as const,
+    title: "AI in Healthcare: Predictive Diagnosis",
     icon: "heartPulse" as const,
     description:
-      "Clinical risk prediction models with an explainable dashboard for early diagnosis support.",
+      "Predictive analytics models over patient health data that surface hidden patterns and flag early disease onset to support faster clinical decisions.",
     tags: ["Python", "scikit-learn", "FastAPI"],
     accent: "from-[oklch(0.72_0.17_150)] to-[oklch(0.78_0.16_190)]",
   },
   {
-    title: "Credit Card Fraud Detection",
-    icon: "shieldAlert" as const,
+    track: "aiml" as const,
+    title: "Heart Disease Risk Factor Analysis",
+    icon: "activity" as const,
     description:
-      "Imbalanced-data classification pipeline with feature engineering and real-time scoring API.",
-    tags: ["Python", "XGBoost", "Pandas"],
-    accent: "from-[oklch(0.75_0.18_75)] to-[oklch(0.7_0.19_40)]",
+      "Two GLMs over a 303-patient dataset; identified max heart rate and ST depression as the strongest predictors and selected the best model by AIC.",
+    tags: ["GLM", "R / Python", "Statistics"],
+    accent: "from-[oklch(0.7_0.19_330)] to-[oklch(0.66_0.2_296)]",
   },
   {
-    title: "Phishing Detection System (NLP)",
-    icon: "fish" as const,
+    track: "aiml" as const,
+    title: "Tissue Inflammation Severity Classification",
+    icon: "microscope" as const,
     description:
-      "Transformer-based text classifier that flags phishing emails and URLs with confidence scoring.",
-    tags: ["NLP", "Transformers", "Python"],
-    accent: "from-[oklch(0.66_0.2_296)] to-[oklch(0.7_0.19_330)]",
+      "Compared Ridge, Logistic Regression and Random Forest on tissue-image measurements with a patient-level split — Random Forest reached ~0.97 AUC.",
+    tags: ["Random Forest", "Ridge", "scikit-learn"],
+    accent: "from-[oklch(0.78_0.16_170)] to-[oklch(0.82_0.15_195)]",
+  },
+  {
+    track: "aiml" as const,
+    title: "Q-Learning GridWorld Agent",
+    icon: "grid" as const,
+    description:
+      "Tabular Q-learning agent with epsilon-greedy and decaying exploration solving grid navigation with obstacles and jump cells across multiple learning rates.",
+    tags: ["Reinforcement Learning", "Q-Learning", "Python"],
+    accent: "from-[oklch(0.82_0.15_195)] to-[oklch(0.6_0.18_260)]",
   },
 ];
+
 
 export const SKILLS = [
   {
