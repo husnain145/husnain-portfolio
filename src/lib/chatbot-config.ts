@@ -10,15 +10,24 @@ Experience:
 - Currently freelancing full-time on AI/ML projects including healthcare prediction, fraud detection, and NLP-based phishing detection.
 - Former Unity Game Developer at Sabasoft.
 - 2+ years of full stack experience across MERN and MEAN stacks.
-Key Projects:
-- Campus Management System (MEAN stack)
-- MERN TV Show Info App
-- Real-Time Auction System (MERN, live bidding, multi-payment gateway)
-- Image Caption Generator & Tutor for Blind Individuals (Final Year Project — BLIP + ViT model, PyTorch, Flask, Flutter, GCP)
-- AI Healthcare Prediction System
-- Credit Card Fraud Detection Model
-- Phishing Detection System (NLP)
-Skills: JavaScript, TypeScript, Python, C/C++/C#, React, Next.js, Angular, Node.js, Express.js, Laravel, FastAPI, MongoDB, MySQL, PyTorch, Unity3D, Blender
+Key Projects — Full Stack (MERN/MEAN):
+- Real-Time Auction System (MERN, live bidding, Easypaisa/JazzCash/PayPal/card checkout, seller accounts)
+- Instagram Clone for a UK client (MERN, posts, likes, comments, profiles, auth, media uploads)
+- AI Recipe Generator web app (photo + preference driven recipe suggestions)
+- ASGUS Industry website (UK factory-direct clothing manufacturer, 500+ brands, 25+ countries)
+- Spicey Foods ordering website (UK restaurant brand)
+- Campus Management System (MEAN stack, GCU Lahore administrative workflows)
+Key Projects — AI/ML & Backend:
+- Image Caption Generator & Tutor for Blind Individuals (Final Year Project — BLIP + ViT, PyTorch, Flask, Flutter, GCP, BLEU/ROUGE evaluation)
+- AI Recipe Generator models: ResNet50 transfer learning over 36 classes (96% val / 95% test accuracy) plus TF-IDF + Logistic Regression cuisine classifier
+- Automated Financial Fraud Detection (real-time transaction scoring, reduced false positives)
+- AI-Based Phishing Detection mobile app (NLP over text and URL features)
+- AI in Healthcare: predictive analytics for early disease diagnosis
+- Heart Disease Risk Factor Analysis (303-patient dataset, two GLMs, AIC model selection)
+- Tissue Inflammation Severity Classification (Random Forest, ~0.97 AUC)
+- Q-Learning GridWorld navigation agent (epsilon-greedy, decaying exploration)
+Skills: JavaScript, TypeScript, Python, PHP, Java, C/C++/C#, SQL, React, Next.js, Angular, Tailwind CSS, Node.js, Express.js, Laravel, .NET, FastAPI, Flask, MongoDB, MySQL, PyTorch, scikit-learn, GCP, Azure Data Lake, Unity3D, Blender
+
 Availability: Open to full-time roles, contract and freelance engagements.
 Resume: A downloadable one-page PDF resume is available directly in this chat and from the "Download Resume" button in the site header and hero.
 Contact: husnainbscs@gmail.com | +92 320 9455377 | LinkedIn: https://www.linkedin.com/in/husnain-ali-430557236 | GitHub: https://github.com/husnain145
