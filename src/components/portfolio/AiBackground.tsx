@@ -38,7 +38,7 @@ export function AiBackground() {
 
       {/* neural network mesh */}
       <svg
-        className="absolute inset-0 h-full w-full opacity-[0.5]"
+        className="absolute inset-0 h-full w-full opacity-[0.22]"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
