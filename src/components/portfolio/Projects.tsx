@@ -59,7 +59,7 @@ export function Projects() {
             <button
               key={t.id}
               onClick={() => setTrack(t.id)}
-              className={`relative rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+              className={`btn-ai gradient-border relative rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                 active
                   ? "border-transparent text-primary-foreground"
                   : "border-border text-muted-foreground hover:text-primary"
@@ -87,8 +87,8 @@ export function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ delay: (i % 2) * 0.06 }}
-                whileHover={{ y: -6 }}
-                className="glass group relative flex flex-col overflow-hidden rounded-2xl p-6 transition-colors hover:border-primary/60"
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="glass group gradient-border relative flex flex-col overflow-hidden rounded-2xl p-6 transition-shadow duration-300 hover:border-primary/60 hover:shadow-[0_18px_40px_-24px_color-mix(in_oklab,var(--primary)_70%,transparent)]"
               >
                 <div
                   className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${project.accent} opacity-70`}
@@ -99,7 +99,7 @@ export function Projects() {
 
                 <div className="flex items-center justify-between">
                   <span
-                    className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${project.accent} shadow-lg`}
+                    className={`flex size-12 items-center justify-center rounded-xl bg-gradient-to-br ${project.accent} shadow-lg transition-transform duration-300 group-hover:scale-105`}
                   >
                     <Icon className="size-5 text-background" />
                   </span>
