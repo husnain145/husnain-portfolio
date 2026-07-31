@@ -61,7 +61,7 @@ export function AiBackground() {
               key={i}
               cx={cx}
               cy={cy}
-              r="0.45"
+              r="0.28"
               fill="color-mix(in oklab, var(--primary) 80%, transparent)"
               className="ai-node"
               style={{ animationDelay: `${i * 0.4}s` }}
