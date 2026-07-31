@@ -1,6 +1,40 @@
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 import { Section } from "./Section";
 import { SKILLS, SOFT_SKILLS } from "@/lib/portfolio-data";
+import { useCountUp } from "@/hooks/use-count-up";
+
+function SkillBar({ name, level }: { name: string; level: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const shown = useCountUp(level, inView);
+
+  return (
+    <div ref={ref}>
+      <div className="flex justify-between text-sm">
+        <span>{name}</span>
+        <span className="font-mono text-xs text-muted-foreground">{shown}%</span>
+      </div>
+      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-secondary">
+        <motion.div
+          initial={{ transform: "scaleX(0)" }}
+          animate={inView ? { transform: "scaleX(1)" } : undefined}
+          transition={{ duration: 1.1, ease: "easeOut" }}
+          className="relative h-full origin-left rounded-full"
+          style={{ width: `${level}%`, background: "var(--gradient-accent)" }}
+        >
+          <span
+            className="absolute top-1/2 right-0 size-2 -translate-y-1/2 rounded-full"
+            style={{
+              background: "var(--primary)",
+              boxShadow: "0 0 8px color-mix(in oklab, var(--primary) 80%, transparent)",
+            }}
+          />
+        </motion.div>
+      </div>
+    </div>
+  );
+}
 
 export function Skills() {
   return (
@@ -28,22 +62,7 @@ export function Skills() {
             </h3>
             <div className="mt-5 space-y-4">
               {group.items.map((item) => (
-                <div key={item.name}>
-                  <div className="flex justify-between text-sm">
-                    <span>{item.name}</span>
-                    <span className="font-mono text-xs text-muted-foreground">{item.level}%</span>
-                  </div>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-secondary">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${item.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.9, ease: "easeOut" }}
-                      className="h-full rounded-full"
-                      style={{ background: "var(--gradient-accent)" }}
-                    />
-                  </div>
-                </div>
+                <SkillBar key={item.name} name={item.name} level={item.level} />
               ))}
             </div>
           </motion.div>
@@ -52,9 +71,16 @@ export function Skills() {
 
       <div className="mt-6 flex flex-wrap gap-2.5">
         {SOFT_SKILLS.map((s) => (
-          <span key={s} className="glass rounded-full px-4 py-2 text-xs text-foreground/85">
+          <motion.span
+            key={s}
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -3 }}
+            className="glass rounded-full px-4 py-2 text-xs text-foreground/85 transition-colors hover:border-primary/60"
+          >
             {s}
-          </span>
+          </motion.span>
         ))}
       </div>
     </Section>

@@ -147,7 +147,7 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-primary-foreground"
+              className="btn-ai group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-primary-foreground"
               style={{ background: "var(--gradient-accent)", boxShadow: "var(--shadow-glow)" }}
             >
               View Projects
@@ -157,7 +157,7 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onOpenChat}
-              className="glass inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-colors hover:border-primary/60"
+              className="glass btn-ai gradient-border inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-colors hover:border-primary/60"
             >
               <MessageSquare className="size-4 text-primary" />
               Chat with my AI Assistant
@@ -167,7 +167,7 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
               whileTap={{ scale: 0.98 }}
               href={RESUME.url}
               download={RESUME.fileName}
-              className="glass group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-colors hover:border-primary/60"
+              className="glass btn-ai gradient-border group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-colors hover:border-primary/60"
             >
               <Download className="size-4 text-primary transition-transform group-hover:translate-y-0.5" />
               Download Resume
