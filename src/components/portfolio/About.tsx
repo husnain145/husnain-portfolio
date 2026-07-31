@@ -55,10 +55,41 @@ const STORY = [
 ];
 
 const STATS = [
-  { icon: Rocket, value: "2+", label: "Years shipping" },
-  { icon: Cpu, value: "7+", label: "Flagship projects" },
-  { icon: Sparkles, value: "3.6", label: "CGPA — BSCS" },
+  { icon: Rocket, to: 2, decimals: 0, suffix: "+", label: "Years shipping" },
+  { icon: Cpu, to: 7, decimals: 0, suffix: "+", label: "Flagship projects" },
+  { icon: Sparkles, to: 3.6, decimals: 1, suffix: "", label: "CGPA — BSCS" },
 ];
+
+function StatCard({ stat, index }: { stat: (typeof STATS)[number]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const value = useCountUp(stat.to, inView, stat.decimals);
+  const Icon = stat.icon;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.3 + index * 0.1 }}
+      whileHover={{ y: -4 }}
+      className="glass rounded-2xl px-4 py-4 text-center"
+      style={{ boxShadow: "var(--shadow-card)" }}
+    >
+      <Icon className="mx-auto size-4 text-primary" />
+      <p className="mt-2 text-2xl font-bold tracking-tight">
+        <span className="gradient-text">
+          {value}
+          {stat.suffix}
+        </span>
+      </p>
+      <p className="mt-1 font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
+        {stat.label}
+      </p>
+    </motion.div>
+  );
+}
 
 export function About() {
   return (
