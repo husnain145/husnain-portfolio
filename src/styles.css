@@ -131,3 +131,363 @@
 @utility glow-ring {
   box-shadow: var(--shadow-glow);
 }
+
+/* ---------------------------------------------------------------
+   AI / robotics ambience — transform + opacity only, few nodes.
+   --------------------------------------------------------------- */
+
+.ai-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--primary) 12%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--violet) 12%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+  transform: perspective(520px) rotateX(62deg) scale(1.6);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(to top, black, transparent 75%);
+  opacity: 0.55;
+}
+
+@keyframes ai-edge-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+.ai-edge {
+  animation: ai-edge-pulse 7s ease-in-out infinite;
+}
+
+@keyframes ai-node-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+.ai-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ai-node-pulse 5.5s ease-in-out infinite;
+}
+
+/* horizontal data-flow lines */
+.ai-flow {
+  position: absolute;
+  left: -30%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--primary) 70%, transparent),
+    transparent
+  );
+  animation: ai-flow-move 11s linear infinite;
+  will-change: transform;
+}
+@keyframes ai-flow-move {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  10%,
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(440%, 0, 0);
+    opacity: 0;
+  }
+}
+.ai-flow-1 {
+  top: 22%;
+}
+.ai-flow-2 {
+  top: 58%;
+  animation-duration: 15s;
+  animation-delay: 3s;
+}
+.ai-flow-3 {
+  top: 82%;
+  animation-duration: 13s;
+  animation-delay: 7s;
+}
+
+/* soft floating geometry */
+.ai-shape {
+  position: absolute;
+  border: 1px solid color-mix(in oklab, var(--violet) 30%, transparent);
+  border-radius: 30%;
+  animation: ai-drift 26s ease-in-out infinite;
+  will-change: transform;
+}
+.ai-shape-1 {
+  top: 14%;
+  right: 8%;
+  width: 180px;
+  height: 180px;
+}
+.ai-shape-2 {
+  bottom: 18%;
+  left: 6%;
+  width: 120px;
+  height: 120px;
+  animation-duration: 34s;
+  animation-direction: reverse;
+}
+@keyframes ai-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -26px, 0) rotate(180deg);
+  }
+}
+
+/* tiny glowing particles */
+.ai-dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: var(--primary);
+  opacity: 0.5;
+  animation: ai-dot-rise 18s linear infinite;
+  will-change: transform;
+}
+@keyframes ai-dot-rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate3d(18px, -70vh, 0);
+    opacity: 0;
+  }
+}
+.ai-dot-1 {
+  bottom: 5%;
+  left: 18%;
+}
+.ai-dot-2 {
+  bottom: 8%;
+  left: 42%;
+  animation-duration: 24s;
+  animation-delay: 4s;
+  background: var(--violet);
+}
+.ai-dot-3 {
+  bottom: 2%;
+  left: 63%;
+  animation-duration: 21s;
+  animation-delay: 8s;
+}
+.ai-dot-4 {
+  bottom: 10%;
+  left: 78%;
+  animation-duration: 27s;
+  animation-delay: 2s;
+  background: var(--violet);
+}
+.ai-dot-5 {
+  bottom: 6%;
+  left: 90%;
+  animation-duration: 19s;
+  animation-delay: 11s;
+}
+
+/* Phones: drop the ambient loops entirely, keep the static mesh. */
+@media (max-width: 767px) {
+  .ai-flow,
+  .ai-dot,
+  .ai-shape {
+    display: none;
+  }
+  .ai-edge,
+  .ai-node {
+    animation: none;
+  }
+}
+
+/* ------------------------------- robot cursor ------------------------------ */
+.robot-cursor {
+  filter: drop-shadow(0 0 8px color-mix(in oklab, var(--primary) 55%, transparent));
+  transition: opacity 0.35s ease;
+  will-change: transform;
+}
+.robot-cursor-float {
+  animation: rc-float 3.4s ease-in-out infinite;
+}
+@keyframes rc-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.robot-cursor-blip {
+  animation: rc-blip 2.2s ease-in-out infinite;
+}
+@keyframes rc-blip {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.robot-cursor-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rc-look 6s ease-in-out infinite;
+}
+@keyframes rc-look {
+  0%,
+  55%,
+  100% {
+    transform: translateX(0) scaleY(1);
+  }
+  60% {
+    transform: translateX(0) scaleY(0.15);
+  }
+  65%,
+  85% {
+    transform: translateX(1.6px) scaleY(1);
+  }
+}
+
+/* --------------------------------- buttons -------------------------------- */
+@utility btn-ai {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.btn-ai:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -18px color-mix(in oklab, var(--primary) 70%, transparent);
+}
+.btn-ai::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in oklab, var(--primary) 45%, transparent),
+    transparent 60%
+  );
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+.btn-ai:active::after {
+  animation: btn-ripple 0.55s ease-out;
+}
+@keyframes btn-ripple {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* animated gradient border for outlined buttons */
+@utility gradient-border {
+  position: relative;
+  background-clip: padding-box;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    color-mix(in oklab, var(--primary) 70%, transparent),
+    color-mix(in oklab, var(--violet) 70%, transparent),
+    color-mix(in oklab, var(--primary) 70%, transparent)
+  );
+  background-size: 200% 100%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.gradient-border:hover::before {
+  opacity: 1;
+  animation: gradient-border-pan 3s linear infinite;
+}
+@keyframes gradient-border-pan {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/* ------------------------------ nav underline ----------------------------- */
+@utility nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1.5px;
+  border-radius: 9999px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-edge,
+  .ai-node,
+  .ai-flow,
+  .ai-dot,
+  .ai-shape,
+  .robot-cursor-float,
+  .robot-cursor-blip,
+  .robot-cursor-eyes {
+    animation: none !important;
+  }
+}
