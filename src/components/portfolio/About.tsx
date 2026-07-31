@@ -131,29 +131,9 @@ export function About() {
           })}
 
           <div className="grid grid-cols-3 gap-3 pt-2">
-            {STATS.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                  whileHover={{ y: -4 }}
-                  className="glass rounded-2xl px-4 py-4 text-center"
-                  style={{ boxShadow: "var(--shadow-card)" }}
-                >
-                  <Icon className="mx-auto size-4 text-primary" />
-                  <p className="mt-2 text-2xl font-bold tracking-tight">
-                    <span className="gradient-text">{s.value}</span>
-                  </p>
-                  <p className="mt-1 font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
-                    {s.label}
-                  </p>
-                </motion.div>
-              );
-            })}
+            {STATS.map((s, i) => (
+              <StatCard key={s.label} stat={s} index={i} />
+            ))}
           </div>
         </div>
 
