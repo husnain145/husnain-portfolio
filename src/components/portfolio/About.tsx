@@ -1,4 +1,6 @@
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+import { useCountUp } from "@/hooks/use-count-up";
 import {
   Atom,
   Triangle,
