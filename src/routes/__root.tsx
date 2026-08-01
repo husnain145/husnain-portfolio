@@ -77,6 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "google-site-verification",
+        content: "2tYb_OPGUFI5-Z5vMapWO6gHWeQnjhKRiaeF6PkwVEw",
+      },
       { title: "Husnain — Full Stack & AI/ML Engineer" },
       { name: "description", content: "Husnain's Digital Canvas is a professional portfolio website showcasing a Software Engineer's full-stack and AI/ML expertise." },
       { name: "author", content: "Husnain Ali" },
