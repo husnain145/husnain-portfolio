@@ -25,6 +25,33 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://husnain-dev.lovable.app/" },
+    ],
+    links: [{ rel: "canonical", href: "https://husnain-dev.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          url: "https://husnain-dev.lovable.app/",
+          mainEntity: {
+            "@type": "Person",
+            name: "Husnain Ali",
+            jobTitle: "Full Stack & AI/ML Engineer",
+            description,
+            url: "https://husnain-dev.lovable.app/",
+            knowsAbout: [
+              "MERN Stack",
+              "MEAN Stack",
+              "React",
+              "Node.js",
+              "Machine Learning",
+              "LLM Integration",
+            ],
+          },
+        }),
+      },
     ],
   }),
   component: Index,

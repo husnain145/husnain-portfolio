@@ -110,6 +110,9 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
           >
             {PROFILE.name}
             <span className="gradient-text">.</span>
+            <span className="mt-3 block text-2xl font-medium tracking-tight text-muted-foreground sm:text-3xl">
+              Full Stack &amp; AI/ML Engineer
+            </span>
           </motion.h1>
 
           <div className="mt-6 h-10 overflow-hidden sm:h-12">
