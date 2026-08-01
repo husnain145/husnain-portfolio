@@ -110,6 +110,9 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
           >
             {PROFILE.name}
             <span className="gradient-text">.</span>
+            <span className="mt-3 block text-2xl font-medium tracking-tight text-muted-foreground sm:text-3xl">
+              Full Stack &amp; AI/ML Engineer
+            </span>
           </motion.h1>
 
           <div className="mt-6 h-10 overflow-hidden sm:h-12">
@@ -246,7 +249,11 @@ export function Hero({ onOpenChat }: { onOpenChat: () => void }) {
               src={portrait.url}
               alt="Husnain — Software Engineer specializing in full stack and AI/ML"
               className="relative aspect-square w-full rounded-[1.6rem] object-contain"
+              width={640}
+              height={640}
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
               style={lite ? { scale: 1.02 } : { scale: 1.02, translateZ: 30 }}
               whileHover={lite ? undefined : { scale: 1.08 }}
               transition={{ type: "spring", stiffness: 120, damping: 20 }}
