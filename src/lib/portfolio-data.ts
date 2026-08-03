@@ -245,7 +245,52 @@ export const TECH_BADGES = [
 ];
 
 
+export const EDUCATION = [
+  {
+    degree: "BS in Computer Science",
+    institution: "Government College University, Lahore",
+    period: "2020 — 2024",
+    detail: "3.6 CGPA · FYP: BLIP + ViT image captioning tutor for blind users",
+  },
+  {
+    degree: "Intermediate in Computer Science (ICS)",
+    institution: "Punjab, Pakistan",
+    period: "2018 — 2020",
+    detail: "",
+  },
+];
+
+export const CERTIFICATIONS = [
+  "Meta Front-End Developer",
+  "Deep Learning Specialization (PyTorch)",
+  "MongoDB for Developers",
+  "Google Cloud Fundamentals",
+  "Unity Certified Developer Track",
+];
+
+export const SERVICES = [
+  {
+    icon: "Briefcase" as const,
+    title: "Full stack web applications",
+    description:
+      "End-to-end MERN/MEAN builds: schema design, REST APIs, real-time features, payments and polished React or Angular front ends.",
+  },
+  {
+    icon: "Award" as const,
+    title: "AI/ML features & deployment",
+    description:
+      "Computer vision and NLP models trained in PyTorch, served through FastAPI/Flask and wired into production products.",
+  },
+  {
+    icon: "Briefcase" as const,
+    title: "Backend & API engineering",
+    description:
+      "Node.js and Laravel services, query optimisation, integrations and reliability work on existing codebases.",
+  },
+];
+
 export const RESUME = {
   url: "/__l5e/assets-v1/93771046-e66c-4cef-a251-2ade92e8c064/Husnain-Resume.pdf",
   fileName: "Husnain-Resume.pdf",
 };
+
