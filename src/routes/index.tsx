@@ -6,10 +6,12 @@ import { About } from "@/components/portfolio/About";
 import { Experience } from "@/components/portfolio/Experience";
 import { Projects } from "@/components/portfolio/Projects";
 import { Skills } from "@/components/portfolio/Skills";
+import { Credentials } from "@/components/portfolio/Credentials";
 import { Contact } from "@/components/portfolio/Contact";
 import { ChatWidget } from "@/components/portfolio/ChatWidget";
 import { AiBackground } from "@/components/portfolio/AiBackground";
 import { RobotCursor } from "@/components/portfolio/RobotCursor";
+import { ScrollProgress } from "@/components/portfolio/ScrollProgress";
 import { PROFILE } from "@/lib/portfolio-data";
 
 const title = "Husnain — Full Stack (MERN/MEAN) & AI/ML Engineer";
