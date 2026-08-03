@@ -66,6 +66,7 @@ function Index() {
     <div className="relative min-h-screen">
       <AiBackground />
       <RobotCursor />
+      <ScrollProgress />
       <Nav />
       <main>
         <Hero onOpenChat={() => setChatOpen(true)} />
@@ -73,6 +74,7 @@ function Index() {
         <Experience />
         <Projects />
         <Skills />
+        <Credentials />
         <Contact />
       </main>
       <footer className="border-t border-border px-6 py-10 text-center font-mono text-xs text-muted-foreground">
